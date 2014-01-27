@@ -1,0 +1,13 @@
+<div id="list">
+	<navigation>
+		<a href="#/items/add">New &rarr;</a>
+	</navigation>
+
+	<h1>Items</h1>
+
+	<ul>
+	<% items.each(function (item) { %>
+		<li><a href="#/items/<%= item.id || item.cid %>"><%= item.get('title') %></a></li>
+	<% }); %>
+	</ul>
+</div>

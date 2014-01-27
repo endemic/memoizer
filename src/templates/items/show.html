@@ -1,0 +1,12 @@
+<div id="show">
+	<navigation>
+		<a href="#/">&larr; Back to list</a>
+		<a href="#/items/<%= item.id || item.cid %>/edit">Edit &rarr;</a>
+	</navigation>
+
+	<h1><%= item.get('title') %></h1>
+
+	<div class="text">
+		<%= item.get('text') %>
+	</div>
+</div>

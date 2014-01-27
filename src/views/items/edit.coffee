@@ -7,7 +7,19 @@ define [
 	'text!templates/items/edit.html'
 ], ($, Backbone, template) ->
 	class EditItemView extends Backbone.View
+		events:
+			'click button.save': 'save'
 
-		initialize: ->
-			@elem = $(template)
+		initialize: (options) ->
+			compiled = _.template template
+			@item = options.items.get options.id
+			@elem = $(compiled({ item: @item }))
 			@render()
+
+		save: ->
+			@item.save
+				title: @$('input.title').val()
+				text: @$('textarea.text').val()
+
+			app.navigate "items/#{@item.id}", { trigger: true }
+			alert 'Item saved!'

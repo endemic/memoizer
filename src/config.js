@@ -5,10 +5,10 @@ require({
         zepto: '../lib/zepto.min',
         underscore: '../lib/underscore-min',
         backbone: '../lib/backbone-min',
-        less: '../lib/less-1.6.0.min'
+        less: '../lib/less-1.6.0.min',
+        localstorage: '../lib/backbone.localStorage-min'
     },
     shim: {
-        // Only necessary when substituting Zepto for jQuery
         zepto: {
             exports: '$'
         },
@@ -23,6 +23,9 @@ require({
         },
         less: {
             exports: 'less'
+        },
+        localstorage: {
+            deps: ['backbone']
         }
     }
 }, ['cs!app']);

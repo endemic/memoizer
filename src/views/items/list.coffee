@@ -8,6 +8,7 @@ define [
 ], ($, Backbone, template) ->
 	class ListItemView extends Backbone.View
 
-		initialize: ->
-			@elem = $(template)
+		initialize: (options)->
+			compiled = _.template template
+			@elem = $(compiled({ items: options.items }))
 			@render()
