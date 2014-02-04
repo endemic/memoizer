@@ -11,9 +11,10 @@ define [
 	'cs!views/items/edit'
 	'cs!collections/items'
 	'cs!models/item'
+	'cs!data/verses'
 	'less'
 	'localstorage'
-], ($, _, Backbone, ListItemsView, ShowItemView, AddItemView, EditItemView, ItemsCollection, ItemModel) ->
+], ($, _, Backbone, ListItemsView, ShowItemView, AddItemView, EditItemView, ItemsCollection, ItemModel, verses) ->
 
 	# Extend local storage
 	Storage.prototype.setObject = (key, value) ->
@@ -46,6 +47,12 @@ define [
 			@el = $('#app')
 			@items = new ItemsCollection
 			@items.fetch()
+
+			# Add some sample data the first time the app is loaded
+			if @items.length is 0
+				for verse in verses
+					@items.create verse
+
 			@active = null
 
 		listItems: ->
