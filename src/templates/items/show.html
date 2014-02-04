@@ -1,10 +1,9 @@
 <div id="show">
-	<navigation>
-		<a href="#/">&larr; Back to list</a>
-		<a href="#/items/<%= item.id || item.cid %>/edit">Edit &rarr;</a>
+	<navigation class="header">
+		<a class="previous" href="#/">&larr; Back to list</a>
+		<a class="next" href="#/items/<%= item.id || item.cid %>/edit">Edit &rarr;</a>
+		<h1><%= item.get('title') %></h1>
 	</navigation>
-
-	<h1><%= item.get('title') %></h1>
 
 	<div class="text">
 		<%= item.get('text') %>
