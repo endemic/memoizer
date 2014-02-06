@@ -26,25 +26,42 @@
     font-style: normal;
 }
 
+@anchor-color: #01b8d6;
+
 html {
 	font: 1rem/1.5 fira_sans_otmedium;
 }
 
-navigation { display: block; background: #0E085D; color: white; text-align: center; margin: 0;
-	a { text-decoration: none; margin: 1%; color: white; }
-	.previous { float: left; }
-	.next { float: right; }
-	h1 { margin: 0; }
+navigation { display: block; background: #2c353b; color: #fff; text-align: center; margin: 0;
+	a { text-decoration: none; padding: 1%; color: @anchor-color; display: block;
+    &:hover { background: #aae1e9; }
+  }
+	.previous { float: left; margin-right: -100%; }
+	.next { float: right; margin-left: -100%; }
+	h1 { margin: 0; 
+    a { display: inline-block; padding: 0 1%; margin: 0 1%; }
+  }
+  input { width: 30%; font-size: 0.8em; vertical-align: middle; }
 }
 
 #list {
-	ul { list-style-type: none; padding: 0;
-		li { border-bottom: 1px solid #ccc; }
+	ul { list-style-type: none; padding: 0; margin: 0;
+		li { border-bottom: 1px solid #ccc; 
+      a { display: block; padding: 1%; text-decoration: none; color: #333; 
+        &:hover { background: #aae1e9; }
+      }
+    }
 	}
 }
 
 #show {
-	.text { padding: 1%;
+	.text { padding: 1%; font-size: 1.3em;
 		.blackout { background: #333; color: #333; }
 	}
+}
+
+#add, #edit {
+  textarea { font-size: 1.5em; margin: 1%; width: 97.5%; height: 200%; }
+  button { font-size: 1.5em; padding: 0.5% 3%; }
+  .buttons { text-align: center; }
 }

@@ -2,7 +2,8 @@
 	<navigation class="header">
 		<a class="previous" href="#/">&larr; Back to list</a>
 		<a class="next" href="#/items/<%= item.id || item.cid %>/edit">Edit &rarr;</a>
-		<h1><%= item.get('title') %></h1>
+
+		<h1><a href="#/items/<%= previous.id %>">&larr;</a><%= item.get('title') %><a href="#/items/<%= next.id %>">&rarr;</a></h1>
 	</navigation>
 
 	<div class="text">

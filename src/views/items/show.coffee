@@ -12,7 +12,21 @@ define [
 
 		initialize: (options) ->
 			compiled = _.template template
-			@elem = $(compiled({ item: options.items.get(options.id) }))
+
+			@items = options.items
+			item = @items.get(options.id)
+
+			# Handle getting "previous/next" items to link against
+			previousIndex = @items.indexOf(item) - 1
+			nextIndex = @items.indexOf(item) + 1
+
+			if previousIndex == -1 then previousIndex = @items.length - 1
+			if nextIndex == @items.length then nextIndex = 0
+
+			previousItem = @items.at previousIndex
+			nextItem = @items.at nextIndex
+
+			@elem = $(compiled({ item: item, previous: previousItem, next: nextItem }))
 
 			text = $('.text', @elem).text().split(' ')
 

@@ -2,10 +2,13 @@
 	<navigation class="header">
 		<a class="previous" href="#/items/<%= item.id || item.cid %>">&larr; Go back without saving</a>
 		<a class="next" href="#/items/<%= item.id || item.cid %>/destroy">Delete &rarr;</a>
-		<input type="text" class="title" value="<%= item.get('title') %>" placeholder="Title goes here">
+
+		<h1><input type="text" class="title" value="<%= item.get('title') %>" placeholder="Title goes here"></h1>
 	</navigation>
 
 	<textarea class="text" placeholder="Enter what you want to memorize here"><%= item.get('text') %></textarea>
 
-	<button class="save">Save</button>
+	<div class="buttons">
+		<button class="save">Save</button>
+	</div>
 </div>
